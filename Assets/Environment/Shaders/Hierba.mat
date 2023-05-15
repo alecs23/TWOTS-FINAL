@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2688124119133933188
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 4
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hierba
+  m_Shader: {fileID: 4800000, guid: a64e5de0ebfb04f4aa9070b9ef136ba2, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BladeTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 0, y: 0}
+        m_Offset: {x: 0, y: 0}
+    - _GrassMap:
+        m_Texture: {fileID: 2800000, guid: e34336449ccbee84cbdb4e3fee4ef618, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WindMap:
+        m_Texture: {fileID: 2800000, guid: e07907a64bc95e9428314e72615568b1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BendDelta: 0.29
+    - _BladeBendCurve: 1
+    - _BladeBendDistance: 0
+    - _BladeHeightMax: 0.33
+    - _BladeHeightMin: 0.47
+    - _BladeSegments: 5.12
+    - _BladeWidthMax: 0.0509
+    - _BladeWidthMin: 0.0462
+    - _GrassFalloff: 0.332
+    - _GrassThreshold: 0.03
+    - _TessellationGrassDistance: 0.05
+    - _WindFrequency: 0.001
+    m_Colors:
+    - _BaseColor: {r: 0.47921857, g: 0.8396226, b: 0.49838898, a: 1}
+    - _TipColor: {r: 0.8160377, g: 1, b: 0.5990566, a: 1}
+    - _WindVelocity: {r: 1.5, g: 0, b: 1, a: 7.89}
+  m_BuildTextureStacks: []
