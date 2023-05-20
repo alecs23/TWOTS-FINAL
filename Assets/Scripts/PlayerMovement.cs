@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         //añade fuerza al rigidbody en el aire
             rb.AddForce(dirMovimiento.normalized * velMovimiento * 10f *airMultiplier, ForceMode.Force);
         //añade gravedad al rigidbody
-            rb.AddForce(Vector3.down * 5 * gravedad, ForceMode.Acceleration);
+            rb.AddForce(Vector3.down * gravedad, ForceMode.Force);
         }
         
     }
