@@ -689,8 +689,13 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: STARTER_ASSETS_PACKAGES_CHECKED
-    7: STARTER_ASSETS_PACKAGES_CHECKED
+    1: STARTER_ASSETS_PACKAGES_CHECKED;GRASSFLOW_SRP
+    4: GRASSFLOW_SRP
+    7: STARTER_ASSETS_PACKAGES_CHECKED;GRASSFLOW_SRP
+    13: GRASSFLOW_SRP
+    19: GRASSFLOW_SRP
+    21: GRASSFLOW_SRP
+    27: GRASSFLOW_SRP
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
