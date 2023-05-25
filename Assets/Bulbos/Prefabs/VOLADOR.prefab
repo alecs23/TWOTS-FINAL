@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1249790174243527813}
   - component: {fileID: 4470890985107413872}
   - component: {fileID: -9187602891046977836}
+  - component: {fileID: 7885322653088436622}
+  - component: {fileID: 8159916043863415671}
   m_Layer: 0
   m_Name: VOLADOR
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452925054165170305}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children:
@@ -34,9 +36,10 @@ Transform:
   - {fileID: 629409043732661267}
   - {fileID: 3961663284763942348}
   - {fileID: 4110287387214674467}
+  - {fileID: 627697500525114223}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &1249790174243527813
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -92,6 +95,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7885322653088436622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452925054165170305}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeda989aa89810d4c88ec1c4fa7da334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feet: {fileID: 627697500525114223}
+  forceMultiplier: 10
+  maxVelocity: 10
+  checkDistance: 20
+  jumpForce: 10
+  floatiness: 0.554
+--- !u!136 &8159916043863415671
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452925054165170305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 0.84229803
+  m_Height: 2.6007466
+  m_Direction: 1
+  m_Center: {x: -0.010067597, y: 1.2836169, z: 0}
 --- !u!1 &701763215332972759
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +248,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8192638235352511141}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1647206233656945663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627697500525114223}
+  m_Layer: 0
+  m_Name: Suelo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627697500525114223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647206233656945663}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.79, z: 0}
+  m_LocalScale: {x: 12.5, y: 12.5, z: 12.5}
+  m_Children: []
+  m_Father: {fileID: 937536262625288763}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1716790049820459977
 GameObject:

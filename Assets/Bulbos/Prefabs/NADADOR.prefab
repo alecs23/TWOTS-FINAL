@@ -405,6 +405,36 @@ Transform:
   m_Father: {fileID: 2752024056618722606}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4832742603577081361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6345282518321035496}
+  m_Layer: 0
+  m_Name: Suelo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6345282518321035496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832742603577081361}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.10645079, y: 0.23, z: 4.9169436}
+  m_LocalScale: {x: 25, y: 25, z: 25}
+  m_Children: []
+  m_Father: {fileID: 6521759948265584048}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4870426519652960717
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +509,8 @@ GameObject:
   - component: {fileID: 5678068322085724639}
   - component: {fileID: 1772980709478821140}
   - component: {fileID: 944167995415693134}
+  - component: {fileID: 3131872782916325155}
+  - component: {fileID: 6967495075854772043}
   m_Layer: 0
   m_Name: NADADOR
   m_TagString: Untagged
@@ -493,7 +525,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5893561210670755594}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children:
@@ -503,9 +535,10 @@ Transform:
   - {fileID: 1308032336956435994}
   - {fileID: 1189838489535077006}
   - {fileID: 1763429724649636624}
+  - {fileID: 6345282518321035496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!195 &5678068322085724639
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -561,6 +594,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!136 &3131872782916325155
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893561210670755594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 2.7779565
+  m_Height: 10.837533
+  m_Direction: 1
+  m_Center: {x: -0, y: 5.521158, z: -2.2779546}
+--- !u!114 &6967495075854772043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893561210670755594}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeda989aa89810d4c88ec1c4fa7da334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feet: {fileID: 6345282518321035496}
+  forceMultiplier: 10
+  maxVelocity: 10
+  checkDistance: 20
+  jumpForce: 10
+  floatiness: 0.544
 --- !u!1 &6222987975607050644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,7 +1148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8631616599584930988}
-  m_LocalRotation: {x: -0.7071068, y: -0.00000023040465, z: -0.00000023040465, w: 0.7071068}
+  m_LocalRotation: {x: -0.70710677, y: -0.0000003258414, z: -0.0000003258414, w: 0.70710677}
   m_LocalPosition: {x: -0.000002683606, y: 4.044378, z: 0.11814033}
   m_LocalScale: {x: 1.3926456, y: 1.5495348, z: 1.890024}
   m_Children: []

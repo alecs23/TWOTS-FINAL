@@ -663,6 +663,8 @@ GameObject:
   - component: {fileID: 8361545597777497847}
   - component: {fileID: 7665975765476492616}
   - component: {fileID: 564809166080684328}
+  - component: {fileID: 8073242135570414217}
+  - component: {fileID: 8042700673505221560}
   m_Layer: 0
   m_Name: ROBUSTO
   m_TagString: Untagged
@@ -685,6 +687,7 @@ Transform:
   - {fileID: 1655040096280217685}
   - {fileID: 1021247052188528985}
   - {fileID: 3471030077344168223}
+  - {fileID: 2976979608249379375}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -743,6 +746,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8073242135570414217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5602759413750476873}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeda989aa89810d4c88ec1c4fa7da334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feet: {fileID: 2976979608249379375}
+  forceMultiplier: 10
+  maxVelocity: 10
+  checkDistance: 20
+  jumpForce: 10
+  floatiness: 0.539
+--- !u!136 &8042700673505221560
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5602759413750476873}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  m_Radius: 3.4384727
+  m_Height: 9.154625
+  m_Direction: 1
+  m_Center: {x: -0.014057159, y: 4.386635, z: 0}
 --- !u!1 &5803987753517221445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1058,36 @@ Transform:
   - {fileID: 7815331073434476064}
   m_Father: {fileID: 520903740464732891}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6602779974763966476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2976979608249379375}
+  m_Layer: 0
+  m_Name: Suelo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2976979608249379375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602779974763966476}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5238342, y: 4.589901, z: -0.06645203}
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_Children: []
+  m_Father: {fileID: 5083104566864702195}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6782587449979778933
 GameObject:

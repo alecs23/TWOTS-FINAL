@@ -17,7 +17,7 @@ public class FollowTarget : MonoBehaviour
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
 
