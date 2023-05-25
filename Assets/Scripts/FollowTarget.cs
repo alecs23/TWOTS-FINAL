@@ -8,16 +8,24 @@ public class FollowTarget : MonoBehaviour
     GameObject target;
     UnityEngine.AI.NavMeshAgent nav; 
 
+    public bool FollowPastor = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        target = GameObject.Find("TargetFollowPlayer");
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        target = GameObject.Find("TargetFollowPlayer");
+
+        if(FollowPastor == false)
+        {
+            return;
+        }
+
         nav.SetDestination(target.transform.position);
 
         //LOOK AT TARGET
