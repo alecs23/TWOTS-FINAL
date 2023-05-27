@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4470890985107413872}
   - component: {fileID: -9187602891046977836}
   - component: {fileID: 3014869787855766036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VOLADOR
   m_TagString: Bulbos
   m_Icon: {fileID: 0}
@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7296b0a78e1da37439a27c6c642f2cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   FollowPastor: 0
 --- !u!95 &-9187602891046977836
 Animator:
@@ -116,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7020110097010106548}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf4.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2124871779811831569}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IKLegPole.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3248511164650110274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5844240173669149734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IKTarget.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1828283845908496234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IKTarget.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4110287387214674467}
   - component: {fileID: 2174943196020984719}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: STEM.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5527669465847279771}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: STEM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8761057559769060062}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IKLegPole.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5926832587794418002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2162899192670729864}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264149757490914310}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf3.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629409043732661267}
   - component: {fileID: 7269524888418362864}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CARA.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -632,7 +633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4455174737179684487}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4724164654642928701}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7065583814149320156}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2945034575946299164}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4170741261957529630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -787,7 +788,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5897019320132506057}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3961663284763942348}
   - component: {fileID: 8175102085233350140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CUERPO.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -924,7 +925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8192638235352511141}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8951045255120485732}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf3.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +991,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7492302012565442107}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1021,7 +1022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4788432920858083875}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Leaf4.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,7 +1052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134033851355983989}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HEAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1082,7 +1083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7050980416507192256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: UpperLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}

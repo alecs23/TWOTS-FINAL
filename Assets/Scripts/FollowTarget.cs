@@ -5,31 +5,34 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
 
-    GameObject target;
-    UnityEngine.AI.NavMeshAgent nav; 
+public Animator animator;
+    GameObject target; //target to follow
+    UnityEngine.AI.NavMeshAgent nav; //reference to the navmesh agent
 
-    public bool FollowPastor = false;
+    public bool FollowPastor = false; //if true, the agent will follow the target, si esta en false pos no le sigue
 
     // Start is called before the first frame update
-    void Start()
+        void Start()
     {
-        target = GameObject.Find("TargetFollowPlayer");
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        animator = GetComponent<Animator>(); //llamamos al animator
+        target = GameObject.Find("TargetFollowPlayer"); //buscamos el target
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>(); //
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(FollowPastor == false)
+        animator.SetFloat("Speed", nav.velocity.magnitude); //segun la velocidad del pastor se activa el target (velocidad < 0.1f) o se activa el walk (velocidad > 0.1f))
+                
+        if(FollowPastor == false) //si no esta activado el follow, no hace nada
         {
             return;
         }
 
-        nav.SetDestination(target.transform.position);
+        nav.SetDestination(target.transform.position); //set the destination of the navmesh agent to the target position
 
         //LOOK AT TARGET
 
-        // transform.LookAt(target.transform);
+        //transform.LookAt(target.transform);
     }
 }
