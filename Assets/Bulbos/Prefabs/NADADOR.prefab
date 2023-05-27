@@ -479,9 +479,10 @@ GameObject:
   - component: {fileID: 5678068322085724639}
   - component: {fileID: 1772980709478821140}
   - component: {fileID: 944167995415693134}
+  - component: {fileID: 8426031259637043595}
   m_Layer: 0
   m_Name: NADADOR
-  m_TagString: Untagged
+  m_TagString: Bulbos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -561,6 +562,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!136 &8426031259637043595
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5893561210670755594}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.2868085
+  m_Height: 10.827442
+  m_Direction: 1
+  m_Center: {x: 0.027072802, y: 5.4551783, z: 0}
 --- !u!1 &6222987975607050644
 GameObject:
   m_ObjectHideFlags: 0
