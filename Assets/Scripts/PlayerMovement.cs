@@ -11,56 +11,94 @@ public class PlayerMovement : MonoBehaviour
     public float fueSalto;
     public float cdSalto;
     public float gravedad = 9.81f;
-    //public float airMultiplier es para que el salto sea más largo si se salta en el aire
     public float airMultiplier;
     private bool puedeSaltar;
+    public Animator AnimatorPastor;
 
     [Header("Controles")]
     public KeyCode saltoKey = KeyCode.Space;
-
+    public KeyCode interactuarKey = KeyCode.E;
 
     [Header("EnSuelo")]
     public float distanciaSuelo;
     public LayerMask sueloMask;
-    bool enSuelo;
+
 
     public Transform Orientación;
 
     float horizontalInput;
     float verticalInput;
 
+    private bool Anda;
+    private bool Interactua;
+    bool enSuelo;
+    bool Saltando;
+    bool Cae;
+    bool ActivaIdle;
+
     Vector3 dirMovimiento;
 
     Rigidbody rb;
 
+    private Animator animator;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        //coge el componente y lo congela para que no rote sin querer
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         puedeSaltar = true;
+
+        animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //comprueba si está en el suelo con un raycast
-        enSuelo = Physics.Raycast (transform.position, Vector3.down, distanciaSuelo + 0.2f, sueloMask);
+        enSuelo = Physics.Raycast(transform.position, Vector3.down, distanciaSuelo + 0.2f, sueloMask);
+        //añade periodo de gracia para realizar la interacción
+        if (enSuelo && Input.GetKeyDown(interactuarKey))
+        {
+            animator.SetBool("Interactua" , true);
+        }
 
         MiInput();
 
         ControlVelocidad();
 
-        //si está en el suelo, le pone fricción para que no se deslice
-        if (enSuelo) 
-            rb.drag = sueloDrag; 
+        if (enSuelo)
+        {
+            rb.drag = sueloDrag;
+            Cae = false;
+        }
         else
+        {
             rb.drag = 0f;
+            Cae = true;
+        }
 
+            // AQUI ESTA EL MATATA, SI INTERACTUO NO PUEDO VOLVER AL IDLE
+        if (Input.GetKeyDown(interactuarKey))
+        {
+            animator.SetBool("Interactua" , true);
+            animator.SetBool("ActivaIdle" , false);
+            Debug.Log ("Interactua");
+        }else{
+            animator.SetBool("Interactua" , false);
+            animator.SetBool("ActivaIdle" , true);
+        }
+
+        Anda = enSuelo && (horizontalInput != 0 || verticalInput != 0);
+        Interactua = Input.GetKeyDown(interactuarKey)  && !Saltando;
+        Saltando = !enSuelo && rb.velocity.y > 0.1f;
+        
+
+        animator.SetBool("Anda", Anda);
+        animator.SetBool("Interactua", Interactua);
+        animator.SetBool("Saltando", Saltando);
+        animator.SetBool("Cae", Cae);
+        animator.SetBool("EnSuelo", enSuelo);
+        animator.SetBool("ActivaIdle", ActivaIdle);
     }
+
 
     private void FixedUpdate()
     {
@@ -69,11 +107,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void MiInput()
     {
-        //coge el input de los ejes
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        //si se pulsa el botón de salto y está en el suelo, salta
         if (Input.GetKeyDown(saltoKey) && enSuelo && puedeSaltar)
         {
             Saltar();
@@ -84,36 +120,36 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoverPlayer()
     {
-        //normaliza el vector para que no se mueva más rápido en diagonal
         dirMovimiento = Orientación.forward * verticalInput + Orientación.right * horizontalInput;
         dirMovimiento.Normalize();
 
-    //En suelo
-        //mueve el rigidbody
-        if(enSuelo)
+        if (enSuelo)
+        {
             rb.AddForce(dirMovimiento * 5f * velMovimiento, ForceMode.Acceleration);
-    //En el aire
-        else if (!enSuelo){
-        //añade fuerza al rigidbody en el aire
-            rb.AddForce(dirMovimiento.normalized * velMovimiento * 10f *airMultiplier, ForceMode.Force);
-        //añade gravedad al rigidbody
-            rb.AddForce(Vector3.down * gravedad, ForceMode.Force);
         }
-        
+        else if (!enSuelo)
+        {
+            rb.AddForce(dirMovimiento.normalized * velMovimiento * 10f , ForceMode.Force);
+            rb.AddForce(Vector3.down * gravedad, ForceMode.Acceleration);
+            
+        }
     }
 
-    private void ControlVelocidad(){
-        //limita la velocidad
+    private void ControlVelocidad()
+    {
         if (rb.velocity.magnitude > velMovimiento)
         {
             rb.velocity = rb.velocity.normalized * velMovimiento;
+        }//limita la velocidad máxima en el aire teniendo en cuenta la gravedad
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (airMultiplier - 1) * Time.deltaTime;
         }
     }
 
     private void Saltar()
     {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-        //añade fuerza hacia arriba
         rb.AddForce(Vector3.up * fueSalto, ForceMode.Impulse);
     }
 
