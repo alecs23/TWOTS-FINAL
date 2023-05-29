@@ -43,18 +43,19 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     void Start()
-    {
+    {//inicializa el rigidbody y congela la rotación
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
         puedeSaltar = true;
 
         animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
-    {
-        enSuelo = Physics.Raycast(transform.position, Vector3.down, distanciaSuelo + 0.2f, sueloMask);
-        //añade periodo de gracia para realizar la interacción
+    {//raycast para detectar el suelo
+        enSuelo = Physics.Raycast(transform.position, Vector3.down, distanciaSuelo + 0.2f, sueloMask); 
+        
         if (enSuelo && Input.GetKeyDown(interactuarKey))
         {
             animator.SetBool("Interactua" , true);
@@ -75,12 +76,12 @@ public class PlayerMovement : MonoBehaviour
             Cae = true;
         }
 
-            // AQUI ESTA EL MATATA, SI INTERACTUO NO PUEDO VOLVER AL IDLE
+            // AQUI ESTA EL MATATA, SI INTERACTUO NO PUEDO VOLVER AL IDLE.
         if (Input.GetKeyDown(interactuarKey))
         {
             animator.SetBool("Interactua" , true);
             animator.SetBool("ActivaIdle" , false);
-            Debug.Log ("Interactua");
+            
         }else{
             animator.SetBool("Interactua" , false);
             animator.SetBool("ActivaIdle" , true);
@@ -122,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
     {
         dirMovimiento = Orientación.forward * verticalInput + Orientación.right * horizontalInput;
         dirMovimiento.Normalize();
-
+        //AQUI TAMBIEN POSIBLE MATATA, ACELERACION EN EL AIRE 
         if (enSuelo)
         {
             rb.AddForce(dirMovimiento * 5f * velMovimiento, ForceMode.Acceleration);
