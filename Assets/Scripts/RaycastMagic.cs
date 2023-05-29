@@ -74,6 +74,7 @@ public class RaycastMagic : MonoBehaviour
     
         if(auraMagica.activeSelf)
         {
+            //TODO
             duracionAura -= Time.deltaTime; //cuenta el tiempo que la magia esta activa
             proyectil.transform.position = new Vector3 (-1000, -1000, -1000); //la mandamos a tomar por culo
             spherePrefab.SetActive(true); //activamos el collider del proyectil
@@ -86,8 +87,26 @@ public class RaycastMagic : MonoBehaviour
                 duracionAura = 2f;
                 disparando = false;
             }
-
         }
+
+
+        //RAYO botón izquierdo (mandar bulbos) // cuando levanto el dedo del click
+        if(Input.GetMouseButtonUp(0) && disparando == false)
+        {
+
+            ray = camera.ScreenPointToRay(Input.mousePosition); 
+            if(Physics.Raycast(ray, out hit))
+            {
+                hitPosition = hit.point;
+                //Debug.DrawLine(transform.position, hit.point, Color.red);
+            }
+            disparando = true; //activa la bool de disparo
+            proyectil.transform.position = transform.position; //coloca el proyectil en la posicion del jugador
+            proyectil.SetActive(true); //activa el prefab del proyectil
+        }
+
+
+
 
     }
 
