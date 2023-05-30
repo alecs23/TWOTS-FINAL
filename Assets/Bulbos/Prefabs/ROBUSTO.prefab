@@ -680,7 +680,7 @@ Transform:
   m_GameObject: {fileID: 5602759413750476873}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 20.294699, y: 15.004999, z: 5.6795263}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: -0.05, y: 0.05, z: -0.05}
   m_Children:
   - {fileID: 4195672595196623469}
   - {fileID: 1655040096280217685}
@@ -725,6 +725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   FollowPastor: 0
+  FollowObjetivo: 0
 --- !u!95 &564809166080684328
 Animator:
   serializedVersion: 5
