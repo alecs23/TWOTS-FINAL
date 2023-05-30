@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Bulbos
+  - Objetivo
   layers:
   - Default
   - TransparentFX

@@ -11,15 +11,20 @@ public class RaycastMagic : MonoBehaviour
     RaycastHit hit;
     Ray ray;
     public GameObject proyectil;
+    public GameObject proyectilAmarillo;
     public GameObject auraMagica;
+    public GameObject auraMagicaAmarilla;
+    public GameObject spherePrefab;
+    public GameObject spherePrefabAmarilla;
+
 
     Vector3 hitPosition;
 
     public float duracionAura = 2f;
+    public float duracionAuraAmarilla = 2f;
     bool disparando = false;
     public float radioEsfera;
 
-    public GameObject spherePrefab;
     
 
     void Awake() 
@@ -28,6 +33,11 @@ public class RaycastMagic : MonoBehaviour
         auraMagica.SetActive(false); //Desactiva el prefab de la magia
         spherePrefab = Instantiate(spherePrefab, transform.position, Quaternion.identity); //Instancia el collider del proyectil
         spherePrefab.SetActive(false); //Desactiva el collider del proyectil
+
+        auraMagicaAmarilla = Instantiate(auraMagicaAmarilla, transform.position, Quaternion.identity); //Instancia el prefab de la magia
+        auraMagicaAmarilla.SetActive(false); //Desactiva el prefab de la magia
+        spherePrefabAmarilla = Instantiate(spherePrefabAmarilla, transform.position, Quaternion.identity); //Instancia el collider del proyectil
+        spherePrefabAmarilla.SetActive(false); //Desactiva el collider del proyectil
     }    
     
     void Start()
@@ -35,6 +45,9 @@ public class RaycastMagic : MonoBehaviour
        //lineRenderer = GetComponent<LineRenderer>();
        proyectil = Instantiate(proyectil, transform.position, Quaternion.identity); //Instancia el prefab del proyectil
        proyectil.SetActive(false);  //Desactiva el prefab del proyectil
+
+       proyectilAmarillo = Instantiate(proyectilAmarillo, transform.position, Quaternion.identity); //Instancia el prefab del proyectil
+       proyectilAmarillo.SetActive(false);  //Desactiva el prefab del proyectil
     }
 
     // Update is called once per frame
@@ -62,6 +75,7 @@ public class RaycastMagic : MonoBehaviour
         }
 
         proyectil.transform.position = Vector3.MoveTowards(proyectil.transform.position, hitPosition, 10f * Time.deltaTime); //mueve el proyectil hacia la posicion del rayo desde la mano
+        proyectilAmarillo.transform.position = Vector3.MoveTowards(proyectilAmarillo.transform.position, hitPosition, 10f * Time.deltaTime); //mueve el proyectil hacia la posicion del rayo desde la mano
 
         if(Vector3.Distance(proyectil.transform.position, hitPosition) < 0.1f) //si el proyectil llega a la posicion del rayo
         {
@@ -72,6 +86,15 @@ public class RaycastMagic : MonoBehaviour
             //hitPosition = Vector3.zero;
         }
     
+        if(Vector3.Distance(proyectilAmarillo.transform.position, hitPosition) < 0.1f) //si el proyectil llega a la posicion del rayo
+        {
+            proyectilAmarillo.SetActive(false); //desactiva el prefab del proyectil
+            auraMagicaAmarilla.SetActive(true); //activa el prefab de la magia
+            auraMagicaAmarilla.transform.position = hitPosition; //coloca el prefab de la magia en la posicion del rayo
+            proyectilAmarillo.transform.position = transform.position; //coloca el proyectil en la posicion del jugador
+            //hitPosition = Vector3.zero;
+        }
+
         if(auraMagica.activeSelf)
         {
             //TODO
@@ -88,6 +111,22 @@ public class RaycastMagic : MonoBehaviour
                 disparando = false;
             }
         }
+        if(auraMagicaAmarilla.activeSelf)
+        {
+            //TODO AMARILLO
+            duracionAuraAmarilla -= Time.deltaTime; //cuenta el tiempo que la magia esta activa
+            proyectilAmarillo.transform.position = new Vector3 (-1000, -1000, -1000); //la mandamos a tomar por culo
+            spherePrefabAmarilla.SetActive(true); //activamos el collider del proyectil
+            spherePrefabAmarilla.transform.position = auraMagicaAmarilla.transform.position; //colocamos el collider del proyectil en la posicion de la magia
+
+            if(duracionAuraAmarilla <= 0) 
+            {
+                spherePrefabAmarilla.transform.position = new Vector3 (-1000, -1000, -1000);
+                auraMagicaAmarilla.SetActive(false); 
+                duracionAuraAmarilla = 2f;
+                disparando = false;
+            }
+        }
 
 
         //RAYO botón izquierdo (mandar bulbos) // cuando levanto el dedo del click
@@ -101,8 +140,8 @@ public class RaycastMagic : MonoBehaviour
                 //Debug.DrawLine(transform.position, hit.point, Color.red);
             }
             disparando = true; //activa la bool de disparo
-            proyectil.transform.position = transform.position; //coloca el proyectil en la posicion del jugador
-            proyectil.SetActive(true); //activa el prefab del proyectil
+            proyectilAmarillo.transform.position = transform.position; //coloca el proyectil en la posicion del jugador
+            proyectilAmarillo.SetActive(true); //activa el prefab del proyectil
         }
 
 

@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: MagicQuad10dn
   m_Shader: {fileID: 4800000, guid: 145bae762d8de8f4c8fb1b284128fae7, type: 3}
   m_ShaderKeywords: 
@@ -56,7 +57,8 @@ Material:
     m_Colors:
     - _Dissolvecolor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
     - _DissolvespeedXY: {r: 0, g: 0, b: 0, a: 0}
-    - _Maincolor: {r: 0, g: 0.49411774, b: 1, a: 1}
+    - _Maincolor: {r: 0, g: 0.32140875, b: 1, a: 1}
     - _Noisecolor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
     - _NoisespeedXYEmissonZPowerW: {r: 0.1, g: 0.03, b: 2.1, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
+  m_BuildTextureStacks: []
