@@ -6,78 +6,98 @@ using UnityEngine.SceneManagement;
 public class ScriptLibro : MonoBehaviour
 {
     public GameObject CanvasLibro;
-    public GameObject Pagina1;
-    public GameObject Pagina2;
-    public GameObject Pagina3;
-    bool LibroAbierto = false;
+    public GameObject[] paginas;
+    public int paginaActual = 0;
+    public GameObject Pastor;
 
     void Start()
     {
         CanvasLibro.SetActive(true);
-        Pagina1.SetActive(false);
-        Pagina2.SetActive(false);
-        Pagina3.SetActive(false);
     }
 
     void Update()
     {
-        
-         if(Input.GetKeyDown(KeyCode.I))
+        // Abrir libro
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            LibroAbierto = !LibroAbierto;
+            AbrirLibro();
         }
 
-        if(LibroAbierto == true)
+        // Cambiar a página siguiente
+        if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            CanvasLibro.SetActive(true);
-            Pagina1.SetActive(true);
+            CambiarPaginaSiguiente();
         }
 
+        // Cambiar a página anterior
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            CambiarPaginaAnterior();
+        }
+
+        // Cerrar libro
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CerrarLibro();
+        }
+
+        // Estado pastor
+        if (paginaActual > 0 && paginaActual < paginas.Length)
+        {
+            Pastor.GetComponent<PlayerMovement>().enabled = false; // Pastor no se mueve
+        }
         else
         {
-            CanvasLibro.SetActive(false);
-            Pagina1.SetActive(false);
+            Pastor.GetComponent<PlayerMovement>().enabled = true; // Pastor se mueve
         }
-
-        if(Pagina1.activeSelf == true && Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Pagina1.SetActive(false);
-            Pagina2.SetActive(true);
-        }
-
-       /* if(CanvasLibro == true && Input.GetKeyDown(KeyCode.Escape))
-        {
-            CanvasLibro.SetActive(false);
-        }
-
-        if(Pagina1 == true && Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Pagina1.SetActive(false);
-            Pagina2.SetActive(true);
-        }
-
-        if(Pagina2 == true && Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            Pagina2.SetActive(false);
-            Pagina3.SetActive(true);
-        }
-
-        if(Pagina2 == true && Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Pagina2.SetActive(false);
-            Pagina1.SetActive(true);
-        }
-
-        if(Pagina3 == true && Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            Pagina3.SetActive(false);
-            Pagina2.SetActive(true);
-        }*/
     }
 
-    public void SiguienteA2()
+    void AbrirLibro()
     {
-        
+        paginaActual = 0;
+        MostrarPaginaActual();
+    }
 
+    void CambiarPaginaSiguiente()
+    {
+        paginaActual++;
+        if (paginaActual >= paginas.Length)
+        {
+            paginaActual = paginas.Length - 1;
+        }
+        MostrarPaginaActual();
+    }
+
+    void CambiarPaginaAnterior()
+    {
+        paginaActual--;
+        if (paginaActual < 0)
+        {
+            paginaActual = 0;
+        }
+        MostrarPaginaActual();
+    }
+
+    void MostrarPaginaActual()
+    {
+        for (int i = 0; i < paginas.Length; i++)
+        {
+            if (i == paginaActual)
+                {
+                paginas[i].SetActive(true);
+                 }
+             else
+                {
+                paginas[i].SetActive(false);
+                }
+        }
+}
+
+
+    void CerrarLibro()
+    {
+        paginaActual = -1;
+        MostrarPaginaActual();
     }
 }
+
